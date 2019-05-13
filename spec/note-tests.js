@@ -32,7 +32,16 @@
   var noteList = new NoteList()
   noteList.addNote("Favourite drink: seltzer")
 
-  assert.isTrue(noteList.notes[0].text == "Favourite drink: seltzer")
+  assert.isTrue(noteList.notes[0].text === "Favourite drink: seltzer")
   };
   testAddNote();
+})(this);
+
+(function(exports) {
+  function testInitializeNoteListView() {
+    var noteListView = new NoteListView()
+    noteListView.noteList.addNote("Favourite drink: seltzer")
+    assert.isTrue(noteListView.noteList.notes[0].text === "Favourite drink: seltzer")
+  };
+  testInitializeNoteListView();
 })(this);
