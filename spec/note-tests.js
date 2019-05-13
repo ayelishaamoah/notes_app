@@ -26,3 +26,13 @@
   };
   testReturnNotes();
 })(this);
+
+(function(exports) {
+  function testAddNote() {
+  var noteList = new NoteList()
+  noteList.addNote("Favourite drink: seltzer")
+
+  assert.isTrue(noteList.notes[0].text == "Favourite drink: seltzer")
+  };
+  testAddNote();
+})(this);
