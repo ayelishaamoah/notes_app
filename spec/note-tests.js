@@ -8,7 +8,7 @@
     if(noteText !== text) {
       throw new Error(`Expected returnText to equal "${text}" but got ${noteText}`)
     } else {
-      console.log(`Expected returnText to equal "${text}" and got ${noteText}`)
+      console.log(`Test Passed: Expected returnText to equal "${text}" and got ${noteText}`)
     }
   };
   testTextProperty();
