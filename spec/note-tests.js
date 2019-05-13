@@ -18,3 +18,11 @@
   };
   testNoteListArray();
 })(this);
+
+(function(exports) {
+  function testReturnNotes() {
+  var noteList = new NoteList()
+  assert.isTrue(noteList.returnNotes() === noteList.notes)
+  };
+  testReturnNotes();
+})(this);
