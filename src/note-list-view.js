@@ -4,7 +4,11 @@
   };
 
   NoteListView.prototype.renderHtml = function() {
-    return `<ul><li><div>${this.noteList.notes[0].text }</div></li>`
+    var htmlString = ``;
+    this.noteList.notes.forEach(function(note) {
+      htmlString += `<li><div>${ note.text }</div></li>`
+    });
+    return htmlString;
   };
   exports.NoteListView = NoteListView
 })(this);
