@@ -45,3 +45,13 @@
   };
   testInitializeNoteListView();
 })(this);
+
+(function(exports) {
+  function testNoteListViewRenderHtml() {
+    var noteListView = new NoteListView()
+    noteListView.noteList.addNote("Favourite drink: seltzer")
+    var html = "<ul><li><div>Favourite drink: seltzer</div></li>"
+    assert.isTrue(noteListView.renderHtml() === html)
+  };
+  testNoteListViewRenderHtml();
+})(this);
