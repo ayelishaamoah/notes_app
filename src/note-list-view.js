@@ -4,9 +4,10 @@
   };
 
   NoteListView.prototype.renderHtmlString = function() {
-    var htmlString = this.noteList.notes.map( note => note.text ).join('</li></div><li><div>')
-    var htmlList = '<ul><li><div>' + htmlString + '</div></li></ul>'
+    if (this.noteList.notes.length == 0) return
 
+    var htmlString = this.noteList.notes.map( note => note.text ).join('</div></li><li><div>')
+    var htmlList = '<ul><li><div>' + htmlString + '</div></li></ul>'
     return htmlList;
   };
   exports.NoteListView = NoteListView
