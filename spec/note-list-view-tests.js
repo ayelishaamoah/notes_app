@@ -1,31 +1,23 @@
 (function(exports) {
   function testInitializeNoteListView() {
-    var noteListView = new NoteListView()
-    noteListView.noteList.addNote("Favourite drink: seltzer")
-    assert.isTrue(noteListView.noteList.notes[0].text === "Favourite drink: seltzer")
+    var noteList = new NoteList()
+    var noteListView = new NoteListView(noteList)
+
+    assert.isTrue(noteListView.noteList === noteList)
   };
   testInitializeNoteListView();
 })(this);
 
 (function(exports) {
-  function testSingleNoteListViewRenderHtml() {
-    var noteListView = new NoteListView()
-    noteListView.noteList.addNote("Favourite drink: seltzer")
-    var html = `<li><div>Favourite drink: seltzer</div></li>`
-    assert.isTrue(noteListView.renderHtml() == html)
+  function returnsSingleHtmlString() {
+    var htmlString = "<ul><li><div>Favourite food: pesto</div></li></ul>"
+
+    var noteList = new NoteList()
+    noteList.addNote("Favourite food: pesto")
+
+    var noteListView = new NoteListView(noteList)
+
+    assert.isTrue(noteListView.renderHtmlString() === htmlString)
   };
-  testSingleNoteListViewRenderHtml();
-})(this);
-
-(function(exports) {
-  function testMultipleNoteListViewRenderHtml() {
-    var noteListView = new NoteListView()
-    noteListView.noteList.addNote("Favourite drink: seltzer")
-    noteListView.noteList.addNote("Favourite food: pesto")
-
-    var html = "<li><div>Favourite drink: seltzer</div></li><li><div>Favourite drink: seltzer</div></li>"
-
-    assert.isTrue(noteListView.renderHtml() === html)
-  };
-  testMultipleNoteListViewRenderHtml();
+  returnsSingleHtmlString();
 })(this);
